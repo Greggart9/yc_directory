@@ -7,9 +7,9 @@ export default async function Home( { searchParams }: {
   const query = (await searchParams).query;
 
   const posts = [{
-    _createdAt: 'Yesterday',
+    _createdAt: new Date(),
     views: 55,
-    author:{_id: 1},
+    author:{ _id: 1, name: 'Greggart9' },
     _id: 1,
     description: 'This is description.',
     image: 'https://images.unsplash.com/photo-1677631234567',
@@ -31,13 +31,13 @@ export default async function Home( { searchParams }: {
       </section>
 
       <section className=" px-6 py-10 max-w-7xl mx-auto">
-          <p className="text-30 font-semibold">
+          <p className="font-semibold text-[26px] text-black">
             {query ? `Search results for "${query}"` : "All Startups"}
           </p>
 
           <ul className="mt-7 grid md:grid-cols-3 sm:grid-cols-2 gap-5">
             {posts ?.length > 0 ? (
-              posts.map((post: StartupCardType) => (
+              posts.map((post: StartupCardType, index: number ) => (
                 <StartupCard key={post?._id} post={post} />
               ))
             ) : (
