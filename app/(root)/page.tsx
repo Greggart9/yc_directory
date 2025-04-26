@@ -11,15 +11,15 @@ export default async function Home( { searchParams }: {
     views: 55,
     author:{ _id: 1, name: 'Greggart9' },
     _id: 1,
-    description: 'This is description.',
-    image: 'https://images.unsplash.com/photo-1677631234567',
+    description: 'Invest in Jpeg.',
+    image: '/img/omen.jpg',
     category: 'NFTs',
-    title: 'NFTs are Still Very Much Alive',
+    title: "NFTs aren't DEAD",
     }]
   return (
     <>
       <section className="flex justify-center flex-col items-center bg-pink-600 w-[100%] h-[400]">
-          <h1 className="text-4xl px-4 text-white bg-black py-3 font-black text-center mb-8">
+          <h1 className="text-4xl text-white bg-black py-8 px-8 font-black text-center mb-8">
             PITCH YOUR STARTUP, <br /> CONNECT WITH ENTREPRENEURS
           </h1>
 
