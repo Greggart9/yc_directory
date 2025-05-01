@@ -8,7 +8,9 @@ const StartupCard = ( { post }: {post: StartupTypeCard }) => {
   const { _createdAt, views, author:{ id: authorId, name}, title, category, _id,
 image, description } = post
   return (
-    <li className="group bg-white border-[5px] border-black py-6 px-5 rounded-[22px] shadow-200 transition-all duration-500 hover:border-primary hover:shadow-300 hover:bg-primary-100">
+    <li className="bg-white border-[5px] border-black
+     py-6 px-5 rounded-[22px] shadow-200 transition-all duration-500
+      hover:border-primary hover:shadow-300 hover:bg-primary-100 ">
         <div className="flex justify-between items-center">
             <p className="font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full group-hover:bg-white-100">
                 { formatDate(_createdAt)}
@@ -42,7 +44,7 @@ image, description } = post
           <img src={image} alt='placeholder' className='w-full h-[164px] rounded-[10px] object-cover' />
         </Link>
 
-        <div className='flex justify-between items-center gap-3'>
+        <div className='flex justify-between items-center mt-3 gap-3'>
           <Link href={`/?query=${category.toLowerCase()}`}>
             <p className='font-medium text-[16px] text-black'>
               {category}
