@@ -1,21 +1,27 @@
 import StartupCard from "../components/StartupCard";
 import SearchForm from "../components/SearchForm";
+import { client } from "@/sanity/lib/client"
+import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 
 export default async function Home( { searchParams }: {
-  searchParams: Promises<{ query: string }>
+  searchParams: Promise<{ query: string }>
 }) {
   const query = (await searchParams).query;
 
-  const posts = [{
-    _createdAt: new Date(),
-    views: 55,
-    author:{ _id: 1, name: 'Greggart9' },
-    _id: 1,
-    description: 'Invest in Jpeg.',
-    image: '/img/omen.jpg',
-    category: 'NFTs',
-    title: "NFTs aren't DEAD",
-    }]
+  const posts = await client.fetch(STARTUPS_QUERY);
+
+  console.log(JSON.stringify(posts, null, 2))
+
+  // const posts = [{
+  //   _createdAt: new Date(),
+  //   views: 55,
+  //   author:{ _id: 1, name: 'Greggart9' },
+  //   _id: 1,
+  //   description: 'Invest in Jpeg.',
+  //   image: '/img/omen.jpg',
+  //   category: 'NFTs',
+  //   title: "NFTs aren't DEAD",
+  //   }]
   return (
     <>
       <section className="flex justify-center flex-col items-center bg-pink-600 w-[100%] h-[400]">
